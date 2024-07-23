@@ -1,10 +1,10 @@
-export default createIteratorObject(report) {
-    const allEmpKeys = Object.keys(report.allEmployees);
-    const derivedEmp = [];
+export default function createIteratorObject(report) {
+  const allEmpKeys = Object.keys(report.allEmployees);
+  const derivedEmp = [];
 
-    for (const keey of allEmpKeys){
-        derivedEmp.push(...report.allEmployees[keey]);
-    }
+  for (const keey of allEmpKeys) {
+    derivedEmp.push(...report.allEmployees[keey]);
+  }
 
-    return derivedEmp;
+  return derivedEmp;
 }

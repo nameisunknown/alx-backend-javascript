@@ -1,3 +1,3 @@
-export default function returnHowManyArgumnets(...props){
-	return props.length;
+export default function returnHowManyArgumnets(...props) {
+  return props.length;
 }
