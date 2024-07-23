@@ -1,9 +1,4 @@
-
-
-Curriculum
-
-Short SpecializationsAverage
-
+Short Specializations
 # 0x00. ES6 Basics
 
 JavaScriptES6
