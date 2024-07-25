@@ -6,7 +6,8 @@ export default async function asyncUploadUser(){
   try{
     asyncResObj.photo = await uploadPhoto().then((res) => res);
     asyncResObj.user = await createUser().then((res) => res);
-  } catch(err) {
+  }
+  catch(err) {
     return {photo: null, user: null};  
   }
 
