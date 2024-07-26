@@ -1,52 +1,48 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this._validateString(name, 'Name');
-    this._length = this._validateNumber(length, 'Length');
-    this._students = this._validateStudentsArray(students, 'Students');
+    this._name = HolbertonCourse._checkForStringType(name);
+    this._length = HolbertonCourse._checkForLengthType(length);
+    this.students = HolbertonCourse._checkForArrayType(students);
   }
 
-  static _validateString(value, attributeName) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attributeName} must be a string`);
+  static _checkForStringType(type) {
+    if (typeof type !== 'string') {
+      throw new TypeError('Name must be a string');
     }
-    return value;
+    return type;
   }
 
-  static _validateNumber(value, attributeName) {
-    if (typeof value !== 'number') {
-      throw new TypeError(`${attributeName} must be a number`);
+  static _checkForLengthType(type) {
+    if (typeof type !== 'number') {
+      throw new TypeError('Length must be a number');
     }
-    return value;
+    return type;
   }
 
-  static _validateStudentsArray(value, attributeName) {
-    if (!Array.isArray(value) || !value.every((student) => typeof student === 'string')) {
-      throw new TypeError(`${attributeName} must be an array of strings`);
+  static _checkForArrayType(type) {
+    if (Array.isArray(type) && type.every((val) => typeof val === 'string')) {
+      return type;
     }
-    return value;
+    return type;
   }
 
-  get name() {
+  setName(name) {
+    this._name = name;
+  }
+
+  getName() {
     return this._name;
   }
 
-  set name(value) {
-    this._name = this._validateString(value, 'Name');
+  setLength(length) {
+    this._length = length;
   }
 
-  get length() {
+  getLength() {
     return this._length;
   }
 
-  set length(value) {
-    this._length = this._validateNumber(value, 'Length');
-  }
-
-  get students() {
-    return this._students;
-  }
-
-  set students(value) {
-    this._students = this._validateStudentsArray(value, 'Students');
+  setStudents(students) {
+    this._students = students;
   }
 }
