@@ -26,23 +26,27 @@ export default class HolbertonCourse {
     return type;
   }
 
-  setName(name) {
-    this._name = name;
+  set name(name) {
+    this._name = HolbertonCourse._checkForStringType(name);
   }
 
-  getName() {
+  get name() {
     return this._name;
   }
 
-  setLength(length) {
-    this._length = length;
+  set length(length) {
+    this._length = HolbertonCourse._checkForLengthType(length);
   }
 
-  getLength() {
+  get length() {
     return this._length;
   }
 
-  setStudents(students) {
-    this._students = students;
+  set students(students) {
+    this._students = HolbertonCourse._checkForArrayType(students);
+  }
+
+  get students() {
+    return this._students;
   }
 }
