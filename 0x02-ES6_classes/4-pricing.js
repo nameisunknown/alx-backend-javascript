@@ -14,6 +14,14 @@ export default class Pricing {
     return this._amount;
   }
 
+  set currency(currency) {
+    this._currency = Pricing._checkForCurrencyType(currency);
+  }
+
+  get currency() {
+    return this._currency;
+  }
+
   static _checkForCurrencyType(type) {
     if (!(type instanceof Currency)) {
       throw new TypeError('Currency must be an instance of Currency class');
