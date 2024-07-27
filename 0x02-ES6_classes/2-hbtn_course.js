@@ -5,27 +5,6 @@ export default class HolbertonCourse {
     this.students = HolbertonCourse._checkForArrayType(students);
   }
 
-  static _checkForStringType(type) {
-    if (typeof type !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    return type;
-  }
-
-  static _checkForLengthType(type) {
-    if (typeof type !== 'number') {
-      throw new TypeError('Length must be a number');
-    }
-    return type;
-  }
-
-  static _checkForArrayType(type) {
-    if (Array.isArray(type) && type.every((val) => typeof val === 'string')) {
-      return type;
-    }
-    return type;
-  }
-
   set name(name) {
     this._name = HolbertonCourse._checkForStringType(name);
   }
@@ -48,5 +27,26 @@ export default class HolbertonCourse {
 
   get students() {
     return this._students;
+  }
+
+  static _checkForLengthType(type) {
+    if (typeof type !== 'number') {
+      throw TypeError('Length must be a number');
+    }
+    return type;
+  }
+
+  static _checkForArrayType(type) {
+    if (!(Array.isArray(type) && type.every((val) => typeof val === 'string'))) {
+      throw TypeError('students must be an Array');
+    }
+    return type;
+  }
+
+  static _checkForStringType(type) {
+    if (typeof type !== 'string') {
+      throw TypeError('Name must be a string');
+    }
+    return type;
   }
 }
